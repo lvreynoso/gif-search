@@ -1,12 +1,12 @@
 {
   "name": "gif-search",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple gif search webapp following the Make School tutorial",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Lucia Reynoso",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
