@@ -21,9 +21,16 @@ app.get('/greetings/:name', function(req, res) {
 
 app.get('/', function(req, res) {
     console.log(req.query.term)
-    giphy.search(req.query.term, function(err, response) {
-        res.render('home', {gifs: response.data})
-    });
+
+    if(req.query.term != undefined){
+        giphy.search(req.query.term, function(err, response) {
+            res.render('home', {gifs: response.data})
+        });
+    }
+
+    else {
+        res.render('home');
+    }
 
     /* HTTP GET version
 
