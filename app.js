@@ -24,12 +24,24 @@ app.get('/', function(req, res) {
 
     if(req.query.term != undefined){
         giphy.search(req.query.term, function(err, response) {
-            res.render('home', {gifs: response.data})
+            if(err) {
+                console.log(err);
+                res.render('home');
+            }
+            else {
+                res.render('home', {gifs: response.data})
+            }
         });
     }
 
     else {
-        res.render('home');
+        giphy.trending(function(err, response) {
+            if(err) {
+                console.log(err);
+                res.render('home');
+            }
+            res.render('home', {gifs: response.data})
+        });
     }
 
     /* HTTP GET version
